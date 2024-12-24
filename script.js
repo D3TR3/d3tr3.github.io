@@ -1,10 +1,30 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // Hamburger menu functionality
+  const arrowHTML = `
+    <div class="arrow-container">
+      <svg class="arrow-svg" width="60" height="30" viewBox="0 0 60 30">
+        <path d="M55 15 L10 15 M20 5 L10 15 L20 25" class="arrow-path" />
+      </svg>
+      <span class="arrow-text">here are my socials</span>
+    </div>
+  `;
+
+  document.body.insertAdjacentHTML('beforeend', arrowHTML);
+
+  // Nav functionality
   const hamburgerInput = document.querySelector(".hamburger input");
   const nav = document.querySelector("nav");
+  const arrowContainer = document.querySelector('.arrow-container');
 
   hamburgerInput.addEventListener("change", () => {
-    nav.classList.toggle("active");
+    if (hamburgerInput.checked) {
+      arrowContainer.classList.add('fade-out');
+      nav.classList.add("active");
+    } else {
+      nav.classList.remove("active");
+      setTimeout(() => {
+        arrowContainer.classList.remove('fade-out');
+      }, 300);
+    }
   });
 
   // Close menu when clicking outside
@@ -16,10 +36,12 @@ document.addEventListener("DOMContentLoaded", () => {
     ) {
       hamburgerInput.checked = false;
       nav.classList.remove("active");
+      arrowContainer.style.display = 'flex';
+      arrowContainer.classList.remove('fade-out');
     }
   });
 
-  // Form functionality
+  // Rest of your code remains the same...
   const nameInput = document.querySelector("#nameInput");
   const formContainer = document.querySelector(".form");
   const hiParagraph = document.querySelector("#hiParagraph");
@@ -119,4 +141,3 @@ document.addEventListener("DOMContentLoaded", () => {
 
   setInterval(updateColors, 1000);
 });
-
