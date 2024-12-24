@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap"
+    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@600&family=Manrope:wght@500&family=DM+Sans:ital,wght@1,400&family=Playfair+Display:ital,wght@1,700&family=PT+Sans:wght@400&family=Josefin+Sans:wght@300&family=Rubik:wght@500&family=Fira+Sans:wght@400&family=IBM+Plex+Sans:wght@600&family=Merriweather:wght@700&display=swap" rel="stylesheet">
+
+
+  <link rel="stylesheet" href="style.css">
+  <title>Lipécz Detre Platón</title>
+</head>
+
+<body>
+  <div class="bg"></div>
+
+  <div class="form">
+    <h1>Hi, what is your name?</h1>
+    <input type="text" id="nameInput" placeholder="Press Enter To Submit..." class="input">
+  </div>
+  
+  <div id="greetingDiv">
+    <h1>Hi, <span id="hiText"></span> !</h1>
+  </div>
+  
+  <div id="hiParagraph">
+    <p>My name is Lipécz Detre Platón and I am a Front-End Developer.</p>
+    <img src="img/IMG_6758.jpg" id="pfp" alt="profile picture" style="width: 150px; height: 150px; border-radius: 10%;">
+  </div>
+
+  <label class="hamburger social-button">
+    <input type="checkbox">
+    <svg viewBox="0 0 32 32">
+      <path class="line line-top-bottom"
+        d="M27 10 13 10C10.8 10 9 8.2 9 6 9 3.5 10.8 2 13 2 15.2 2 17 3.8 17 6L17 26C17 28.2 18.8 30 21 30 23.2 30 25 28.2 25 26 25 23.8 23.2 22 21 22L7 22">
+      </path>
+      <path class="line" d="M7 16 27 16"></path>
+    </svg>
+  </label>
+
+  <nav>
+    <div class="social-buttons">
+      <a href="index.html" class="social-button home">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 20 20">
+          <path
+            d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z">
+          </path>
+        </svg>
+      </a>
+    </div>
+    <div class="social-buttons">
+      <a href="https://github.com/D3TR3" class="social-button github" target="_blank">
+        <svg class="cf-icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="-2.5 0 19 19">
+          <path
+            d="M9.464 17.178a4.506 4.506 0 0 1-2.013.317 4.29 4.29 0 0 1-2.007-.317.746.746 0 0 1-.277-.587c0-.22-.008-.798-.012-1.567-2.564.557-3.105-1.236-3.105-1.236a2.44 2.44 0 0 0-1.024-1.348c-.836-.572.063-.56.063-.56a1.937 1.937 0 0 1 1.412.95 1.962 1.962 0 0 0 2.682.765 1.971 1.971 0 0 1 .586-1.233c-2.046-.232-4.198-1.023-4.198-4.554a3.566 3.566 0 0 1 .948-2.474 3.313 3.313 0 0 1 .091-2.438s.773-.248 2.534.945a8.727 8.727 0 0 1 4.615 0c1.76-1.193 2.532-.945 2.532-.945a3.31 3.31 0 0 1 .092 2.438 3.562 3.562 0 0 1 .947 2.474c0 3.54-2.155 4.32-4.208 4.548a2.195 2.195 0 0 1 .625 1.706c0 1.232-.011 2.227-.011 2.529a.694.694 0 0 1-.272.587z">
+          </path>
+        </svg>
+      </a>
+    </div>
+    <div class="social-buttons">
+      <a href="https://www.linkedin.com/in/detre/" class="social-button linkedin" target="_blank">
+        <svg viewBox="0 -2 44 44" version="1.1" xmlns="http://www.w3.org/2000/svg">
+          <g id="Icons" stroke="none" stroke-width="1">
+            <g transform="translate(-702.000000, -265.000000)">
+              <path
+                d="M746,305 L736.2754,305 L736.2754,290.9384 C736.2754,287.257796 734.754233,284.74515 731.409219,284.74515 C728.850659,284.74515 727.427799,286.440738 726.765522,288.074854 C726.517168,288.661395 726.555974,289.478453 726.555974,290.295511 L726.555974,305 L716.921919,305 C716.921919,305 717.046096,280.091247 716.921919,277.827047 L726.555974,277.827047 L726.555974,282.091631 C727.125118,280.226996 730.203669,277.565794 735.116416,277.565794 C741.21143,277.565794 746,281.474355 746,289.890824 L746,305 L746,305 Z M707.17921,274.428187 L707.117121,274.428187 C704.0127,274.428187 702,272.350964 702,269.717936 C702,267.033681 704.072201,265 707.238711,265 C710.402634,265 712.348071,267.028559 712.41016,269.710252 C712.41016,272.34328 710.402634,274.428187 707.17921,274.428187 L707.17921,274.428187 L707.17921,274.428187 Z M703.109831,277.827047 L711.685795,277.827047 L711.685795,305 L703.109831,305 L703.109831,277.827047 L703.109831,277.827047 Z"
+                id="LinkedIn"></path>
+            </g>
+          </g>
+        </svg>
+      </a>
+    </div>
+  </nav>
+
+  <div class="name">
+    <h1 id="name">Lipécz Detre Platón</h1>
+    <p id="moto">Front-End Developer</p>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
