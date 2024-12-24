@@ -101,13 +101,13 @@ nav {
   background-color: rgba(36, 36, 36, 1);
   display: flex;
   align-items: center;
-  padding: 15px;
+  padding: 4px;
   color: white;
   border-radius: 10px;
   text-align: left;
   position: fixed;
   top: 85px;
-  left: 15px;
+  left: 5px;
   flex-direction: column;
   transition: transform 0.3s ease-in-out;
   transform: translateX(-100%);
