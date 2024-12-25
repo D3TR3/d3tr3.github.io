@@ -4,35 +4,6 @@
   font-style: normal;
 }
 
-.bg {
-  position: fixed;
-  top: -50%;
-  left: -50%;
-  right: -50%;
-  bottom: -50%;
-  width: 200%;
-  height: 200vh;
-  background: transparent url("http://assets.iceable.com/img/noise-transparent.png") repeat 0 0;
-  background-repeat: repeat;
-  animation: bg-animation 0.5s infinite;
-  opacity: 0.9;
-  visibility: visible;
-}
-
-@keyframes bg-animation {
-  0% { transform: translate(0, 0); }
-  10% { transform: translate(-5%, -5%); }
-  20% { transform: translate(-10%, 5%); }
-  30% { transform: translate(5%, -10%); }
-  40% { transform: translate(-5%, 15%); }
-  50% { transform: translate(-10%, 5%); }
-  60% { transform: translate(15%, 0); }
-  70% { transform: translate(0, 10%); }
-  80% { transform: translate(-15%, 0); }
-  90% { transform: translate(10%, 5%); }
-  100% { transform: translate(5%, 0); }
-}
-
 body {
   background-color: #111111;
   margin: 0;
@@ -53,7 +24,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: 0.3s;
+  transition: 0.1s;
   box-shadow: 0px 0px 4px #00000027;
 }
 
@@ -67,7 +38,7 @@ body {
 
 .hamburger svg {
   height: 24px;
-  transition: transform 600ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .line {
@@ -76,8 +47,8 @@ body {
   stroke-linecap: round;
   stroke-linejoin: round;
   stroke-width: 3;
-  transition: stroke-dasharray 600ms cubic-bezier(0.4, 0, 0.2, 1),
-              stroke-dashoffset 600ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: stroke-dasharray 300ms cubic-bezier(0.4, 0, 0.2, 1),
+    stroke-dashoffset 300ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .hamburger:hover .line {
@@ -109,7 +80,7 @@ nav {
   top: 85px;
   left: 5px;
   flex-direction: column;
-  transition: transform 0.3s ease-in-out;
+  transition: transform 0.2s ease-in-out;
   transform: translateX(-100%);
   backdrop-filter: blur(5px);
   z-index: 1000;
@@ -123,7 +94,8 @@ nav > * {
   margin: 10px 0;
 }
 
-nav a, nav a:visited {
+nav a,
+nav a:visited {
   text-decoration: none;
   color: white;
 }
@@ -142,7 +114,7 @@ nav a:hover {
   margin: 0 10px;
   background-color: #333;
   box-shadow: 0px 0px 4px #00000027;
-  transition: 0.3s;
+  transition: 0.5s;
 }
 
 .social-button:hover {
@@ -152,6 +124,208 @@ nav a:hover {
 .social-buttons svg {
   transition: 0.5s;
   height: 20px;
+}
+
+#name {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 2em;
+  text-align: center;
+  margin: 0;
+  color: White;
+  font-family: "Newsreader", serif;
+  font-weight: 100;
+}
+
+#moto {
+  position: absolute;
+  top: 60px;
+  right: 20px;
+  font-size: 1em;
+  text-align: center;
+  margin: 0;
+  color: rgb(130, 130, 130);
+}
+/* FORM --------------------------------- */
+.form {
+  position: fixed;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 500px;
+  width: 90%;
+  text-align: center;
+  padding: 20px;
+  color: white;
+  opacity: 1;
+  transition: opacity 0.5s ease-out;
+  z-index: 1000;
+}
+
+.form h1 {
+  font-size: 2em;
+  margin-bottom: 20px;
+  color: white;
+  font-family: "Newsreader", serif;
+  font-weight: 100;
+}
+
+.form.fade-out {
+  opacity: 0;
+  display: none 0.5s;
+}
+.form.fade-in {
+  opacity: 1;
+  display: block 0.5s;
+}
+
+/* FORM --------------------------------- */
+.input {
+  --input-focus: #000000;
+  --font-color: #323232;
+  --font-color-sub: #666;
+  --bg-color: #fff;
+  --main-color: #323232;
+  width: 200px;
+  height: 40px;
+  border-radius: 5px;
+  text-align: center;
+  border: 2px solid var(--main-color);
+  background-color: var(--bg-color);
+  box-shadow: 4px 4px var(--main-color);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--font-color);
+  padding: 5px 10px;
+  outline: none;
+}
+
+.input::placeholder {
+  color: var(--font-color-sub);
+  opacity: 0.8;
+}
+
+.input:focus {
+  border: 2px solid var(--input-focus);
+}
+
+/* HI AFTER FORM --------------------------------- */
+#hiParagraph {
+  position: fixed;
+  top: calc(120px + 70px);
+  left: 50%;
+  transform: translate(-50%, 0);
+  max-width: 500px;
+  width: 90%;
+  text-align: center;
+  padding: 20px;
+  color: white;
+  opacity: 0;
+  transition: opacity 0.5s ease-in;
+}
+
+#hiParagraph.fade-in {
+  opacity: 1;
+}
+
+#hiParagraph p {
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-weight: 100;
+  color: rgb(130, 130, 130);
+}
+
+#hiText {
+  display: inline-block;
+  animation: colorFontChange 1s cubic-bezier(0.68, -0.55, 0.265, 1.55) infinite;
+}
+
+#hiTextContainer {
+  
+  transform: translate(-50%, 0);
+  font-size: fill;
+}
+/* HI AFTER FORM --------------------------------- */
+
+#greetingDiv {
+  position: fixed;
+  top: 120px;
+  left: 50%;
+  max-width: 500px;
+  text-align: center;
+  color: white;
+  opacity: 0;
+  transition: opacity 0.5s ease-in;
+}
+
+#greetingDiv.fade-in {
+  opacity: 1;
+}
+/* HI AFTER FORM --------------------------------- */
+
+.arrow-container {
+  position: fixed;
+  top: 28px;
+  left: 85px;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  opacity: 1;
+  transition: opacity 0.2s;
+}
+
+.arrow-container.fade-out {
+  opacity: 0;
+}
+
+.arrow-path {
+  fill: none;
+  stroke: white;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  animation: bounce 3s infinite;
+}
+
+.arrow-text {
+  color: white;
+  font-family: "Red Hat Display New", Courier, monospace;
+  padding-left: 15px;
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  10% {
+    transform: translateX(5px);
+  }
+  20% {
+    transform: translateX(0);
+  }
+  30% {
+    transform: translateX(5px);
+  }
+  40%,
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@media (max-width: 630px) {
+  .arrow-container {
+    transform: rotate(60deg);
+    top: 140px;
+    left: 10px;
+  }
+  .arrow-text {
+    transform: rotate(-60deg);
+    transform-origin: left;
+    padding-top: 18px;
+    padding-left: 10px;
+  }
 }
 
 .github svg {
@@ -182,86 +356,25 @@ nav a:hover {
   fill: #333;
 }
 
-#name {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  font-size: 2em;
-  text-align: center;
-  margin: 0;
-  color: White;
-  font-family: "Newsreader", serif;
-  font-weight: 100;
+.home:hover {
+  cursor: pointer;
 }
 
-#moto {
-  position: absolute;
-  top: 60px;
-  right: 20px;
-  font-size: 1em;
-  text-align: center;
-  margin: 0;
-  color: rgb(130, 130, 130);
+.code svg {
+  width: 26px;
+  height: 26px;
+  fill: #f2f2f2;
 }
 
-.form {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  max-width: 500px;
-  width: 90%;
-  text-align: center;
-  padding: 20px;
-  color: white;
-  opacity: 1;
-  transition: opacity 0.5s ease-out;
-  z-index: 1000;
+.code:hover svg {
+  fill: #333;
 }
 
-.form.fade-out {
-  opacity: 0;
-  pointer-events: none;
+.code:hover {
+  cursor: pointer;
 }
 
-.form h1 {
-  font-size: 2em;
-  margin-bottom: 20px;
-  color: white;
-  font-family: "Newsreader", serif;
-  font-weight: 100;
-}
-
-.input {
-  --input-focus: #000000;
-  --font-color: #323232;
-  --font-color-sub: #666;
-  --bg-color: #fff;
-  --main-color: #323232;
-  width: 200px;
-  height: 40px;
-  border-radius: 5px;
-  text-align: center;
-  border: 2px solid var(--main-color);
-  background-color: var(--bg-color);
-  box-shadow: 4px 4px var(--main-color);
-  font-size: 15px;
-  font-weight: 600;
-  color: var(--font-color);
-  padding: 5px 10px;
-  outline: none;
-}
-
-.input::placeholder {
-  color: var(--font-color-sub);
-  opacity: 0.8;
-}
-
-.input:focus {
-  border: 2px solid var(--input-focus);
-}
-
-#hiParagraph {
+.codeContainer {
   position: fixed;
   top: calc(120px + 120px); /* Adjust the second value for desired spacing */
   left: 50%;
@@ -272,101 +385,13 @@ nav a:hover {
   padding: 20px;
   color: white;
   opacity: 0;
-  transition: opacity 1s ease-in;
+  transition: opacity 0.5s ease-in;
 }
 
-#hiParagraph.fade-in {
+.codeContainer.fade-in {
   opacity: 1;
 }
 
-#hiParagraph h1 {
-  font-optical-sizing: auto;
-  font-weight: 800;
-  margin-bottom: 20px;
-}
-
-#hiParagraph p {
-  font-optical-sizing: auto;
-  font-style: normal;
-  font-weight: 100;
-  color: rgb(130, 130, 130);
-}
-
-#hiText {
-  display: inline-block;
-  animation: colorFontChange 1s cubic-bezier(0.68, -0.55, 0.265, 1.55) infinite;
-  
-}
-
-#greetingDiv {
-  position: fixed;
-  top: 120px;
-  left: 50%;
-  transform: translate(-50%, 0);
-  max-width: 500px;
-  width: 90%;
-  padding: 20px;
-  text-align: center;
-  color: white;
-  font-family: "Newsreader", serif;
-  font-weight: 100;
+.codeContainer.fade-out {
   opacity: 0;
-  transition: opacity 1s ease-in;
-  font-size: 2em;
-}
-
-#greetingDiv.fade-in {
-  opacity: 1;
-}
-
-.arrow-container {
-  position: fixed;
-  top: 28px;
-  left: 85px;
-  z-index: 999;
-  display: flex;
-  align-items: center;
-  opacity: 1;
-  transition: opacity 0.5s ease-out;
-}
-
-.arrow-container.fade-out {
-  opacity: 0;
-}
-
-.arrow-path {
-  fill: none;
-  stroke: white;
-  stroke-width: 2;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  animation: bounce 3s infinite;
-}
-
-.arrow-text {
-  color: white;
-  font-family: 'Courier New', Courier, monospace;
-  padding-left: 15px;
-}
-
-@keyframes bounce {
-  0%, 100% { transform: translateX(0); }
-  10% { transform: translateX(5px); }
-  20% { transform: translateX(0); }
-  30% { transform: translateX(5px); }
-  40%, 100% { transform: translateX(0); }
-}
-
-@media (max-width: 768px) {
-  .arrow-container {
-    transform: rotate(45deg);
-    top: 130px;
-    left: 30px;
-  }
-  .arrow-text {
-    transform: rotate(-45deg);
-    transform-origin: left;
-    padding-top: 18px;
-    padding-left: 10px;
-  }
 }

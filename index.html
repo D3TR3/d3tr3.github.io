@@ -8,28 +8,50 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap"
     rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@600&family=Manrope:wght@500&family=DM+Sans:ital,wght@1,400&family=Playfair+Display:ital,wght@1,700&family=PT+Sans:wght@400&family=Josefin+Sans:wght@300&family=Rubik:wght@500&family=Fira+Sans:wght@400&family=IBM+Plex+Sans:wght@600&family=Merriweather:wght@700&display=swap" rel="stylesheet">
-
-
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@600&family=Manrope:wght@500&family=DM+Sans:ital,wght@1,400&family=Playfair+Display:ital,wght@1,700&family=PT+Sans:wght@400&family=Josefin+Sans:wght@300&family=Rubik:wght@500&family=Fira+Sans:wght@400&family=IBM+Plex+Sans:wght@600&family=Merriweather:wght@700&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <title>Lipécz Detre Platón</title>
 </head>
 
 <body>
-  <div class="bg"></div>
+  <div class="name">
+    <h1 id="name">Lipécz Detre Platón</h1>
+    <p id="moto">Front-End Developer</p>
+  </div>
+
+
+  <!-- FORM WHAT IS YOUR NAME ON THE OPENING-->
 
   <div class="form">
-    <h1>Hi, what is your name?</h1>
-    <input type="text" id="nameInput" placeholder="Press Enter To Submit..." maxlength="5" class="input">
+    <h1>Hi, what's your name?</h1>
+    <input type="text" id="nameInput" placeholder="Press Enter... (Max 7 char)" maxlength="7" class="input">
   </div>
-  
+
+  <!-- FORM WHAT IS YOUR NAME ON THE OPENING-->
+
+
   <div id="greetingDiv">
-    <h1>Hi, <span id="hiText"></span> !</h1>
+    <div id="hiTextContainer">
+      <h1>Hi, <span id="hiText"></span> !</h1>
+    </div>
+
+    <div id="hiParagraph">
+      <p>My name is Lipécz Detre Platón, but call me Detre. I have a strong passion for front-end development, with a
+        focus on JavaScript and crafting intuitive, visually engaging websites. My expertise spans software engineering,
+        testing, and front-end design, allowing me to transform creative concepts into functional digital experiences.
+        I’m
+        driven to excel as a front-end developer in an innovative company or to launch my own tech venture, blending
+        creativity with technology to make a lasting impact.</p>
+    </div>
   </div>
-  
-  <div id="hiParagraph">
-    <p>My name is Lipécz Detre Platón, but call me Detre. I have a strong passion for front-end development, with a focus on JavaScript and crafting intuitive, visually engaging websites. My expertise spans software engineering, testing, and front-end design, allowing me to transform creative concepts into functional digital experiences. I’m driven to excel as a front-end developer in an innovative company or to launch my own tech venture, blending creativity with technology to make a lasting impact.</p>
+
+  <div class="codeContainer">
+    <h1>Hi</h1>
+    <p>This website took me about 10</p>
   </div>
+
 
   <label class="hamburger social-button">
     <input type="checkbox">
@@ -43,7 +65,7 @@
 
   <nav>
     <div class="social-buttons">
-      <a href="index.html" class="social-button home">
+      <a class="social-button home">
         <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 20 20">
           <path
             d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z">
@@ -73,12 +95,17 @@
         </svg>
       </a>
     </div>
+    <div class="social-buttons">
+      <a class="social-button code">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed">
+          <path
+            d="M320-240 80-480l240-240 57 57-184 184 183 183-56 56Zm320 0-57-57 184-184-183-183 56-56 240 240-240 240Z" />
+        </svg>
+      </a>
+    </div>
   </nav>
 
-  <div class="name">
-    <h1 id="name">Lipécz Detre Platón</h1>
-    <p id="moto">Front-End Developer</p>
-  </div>
+
 
   <script src="script.js"></script>
 </body>

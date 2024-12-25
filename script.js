@@ -1,18 +1,29 @@
+//LOADING THE CONTENT IN SHOWS THE LIL ARROW GUY
 document.addEventListener("DOMContentLoaded", () => {
   const arrowHTML = `
     <div class="arrow-container">
       <svg class="arrow-svg" width="60" height="30" viewBox="0 0 60 30">
         <path d="M55 15 L10 15 M20 5 L10 15 L20 25" class="arrow-path" />
       </svg>
-      <span class="arrow-text">here are my socials</span>
+      <span class="arrow-text">socials, and more</span>
     </div>
   `;
-
   document.body.insertAdjacentHTML("beforeend", arrowHTML);
+
+  //QUERY SELECTORS LOLS
 
   const hamburgerInput = document.querySelector(".hamburger input");
   const nav = document.querySelector("nav");
   const arrowContainer = document.querySelector(".arrow-container");
+
+  const nameInput = document.querySelector("#nameInput");
+  const formContainer = document.querySelector(".form");
+  const greetingDiv = document.querySelector("#greetingDiv");
+  const codeContainer = document.querySelector(".codeContainer");
+  const code = document.querySelector(".code");
+  const home = document.querySelector(".home");
+
+  //IF CHECKED DO THAT AND DO THIS U KNOW THE DRILL
 
   hamburgerInput.addEventListener("change", () => {
     if (hamburgerInput.checked) {
@@ -25,7 +36,26 @@ document.addEventListener("DOMContentLoaded", () => {
       }, 300);
     }
   });
+  const userName = "";
+  //PRESSING ENTER AND SHOWING NAME
+  nameInput.addEventListener("keypress", (event) => {
+    if (event.key === "Enter" && nameInput.value.trim() !== "") {
+      const userName = nameInput.value.trim();
 
+      hiText.textContent = userName;
+      setInterval(updateColors, 1000);
+      formContainer.classList.remove("fade-in");
+      formContainer.classList.add("fade-out");
+
+      greetingDiv.classList.remove("fade-out");
+      greetingDiv.classList.add("fade-in");
+
+      hiParagraph.classList.remove("fade-out");
+      hiParagraph.classList.add("fade-in");
+    }
+  });
+
+  //CLICKING OUTSIDE OF HAMBURGER MENU
   document.addEventListener("click", (e) => {
     if (
       !nav.contains(e.target) &&
@@ -39,12 +69,37 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  const nameInput = document.querySelector("#nameInput");
-  const formContainer = document.querySelector(".form");
-  const hiParagraph = document.querySelector("#hiParagraph");
-  const hiText = document.querySelector("#hiText");
-  const greetingDiv = document.querySelector("#greetingDiv");
+  //CLICKING THE CODE BUTTON
+  code.addEventListener("click", () => {
+    greetingDiv.classList.add("fade-out");
+    greetingDiv.classList.remove("fade-in");
 
+    hiParagraph.classList.add("fade-out");
+    hiParagraph.classList.remove("fade-in");
+
+    formContainer.classList.add("fade-out");
+    formContainer.classList.remove("fade-in");
+
+    codeContainer.classList.remove("fade-out");
+    codeContainer.classList.add("fade-in");
+  });
+
+  //CLICKING THE HOME BUTTON
+  home.addEventListener("click", () => {
+    formContainer.classList.remove("fade-out");
+    formContainer.classList.add("fade-in");
+
+    greetingDiv.classList.add("fade-out");
+    greetingDiv.classList.remove("fade-in");
+
+    hiParagraph.classList.remove("fade-out");
+    hiParagraph.classList.add("fade-in");
+
+    codeContainer.classList.remove("fade-in");
+    codeContainer.classList.add("fade-out");
+  });
+
+  //NAME COLOR GENERATOR + ANIMATION + FONT WEIGHT
   function updateColors() {
     const style = document.createElement("style");
     const hue1 = Math.floor(Math.random() * 360);
@@ -125,16 +180,4 @@ document.addEventListener("DOMContentLoaded", () => {
   `;
     document.head.appendChild(style);
   }
-
-  nameInput.addEventListener("keypress", (event) => {
-    if (event.key === "Enter" && nameInput.value.trim() !== "") {
-      const userName = nameInput.value.trim();
-      hiText.textContent = userName;
-      formContainer.classList.add("fade-out");
-      greetingDiv.classList.add("fade-in");
-      hiParagraph.classList.add("fade-in");
-    }
-  });
-
-  setInterval(updateColors, 1000);
 });
