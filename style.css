@@ -5,7 +5,11 @@
 }
 
 body {
-  background-color: #111111;
+  background: linear-gradient(-90deg, rgba(163, 163, 163, 0.04) 1px, transparent 1px),
+    linear-gradient(rgba(163, 163, 163, 0.04) 1px, transparent 1px), #f2f2f2;
+  background-size: 4px 4px, 4px 4px, 80px 80px, 80px 80px, 80px 80px, 80px 80px,
+    80px 80px, 80px 80px;
+  background-color: #131313;
   margin: 0;
   overflow-x: hidden;
 }
@@ -167,7 +171,7 @@ nav a:hover {
   font-size: 2em;
   margin-bottom: 20px;
   color: white;
-  font-family: "Newsreader", serif;
+
   font-weight: 100;
 }
 
@@ -242,7 +246,6 @@ nav a:hover {
 }
 
 #hiTextContainer {
-  
   transform: translate(-50%, 0);
   font-size: fill;
 }
