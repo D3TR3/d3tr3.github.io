@@ -14,7 +14,7 @@ body {
     80px 80px, 80px 80px;
   background-color: #131313;
   margin: 0;
-  overflow-x: hidden;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
   overflow-y: auto;
   color: white;
 }
@@ -449,14 +449,20 @@ nav a:hover {
     padding: 5px; /* Reduce padding for smaller screens */
     width: 95%; /* Adjust width for better responsiveness */
   }
-}
+
+  .project-grid {
+    grid-template-columns: 1fr; /* Single column layout for mobile */
+  }
+
   .responsive-img {
     width: 50%;
     max-height: none;
+    margin: 0 auto; /* Ensure the image is centered horizontally */
   }
 
   #projectImage {
-    left: 26%;
+    left: 50%;
+    transform: translate(-50%, 0); /* Center the image horizontally */
   }
 
   .enlarged-image-container {
@@ -469,6 +475,7 @@ nav a:hover {
     height: 100%;
     object-fit: contain;
   }
+}
 
 .codeContainer .responsive-img {
   pointer-events: auto;
