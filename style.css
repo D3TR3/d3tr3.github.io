@@ -1,8 +1,11 @@
+/* Global font */
 * {
   font-family: "Red Hat Display", serif;
   font-optical-sizing: auto;
   font-style: normal;
 }
+
+/* Background styling */
 
 body {
   background: linear-gradient(-90deg, rgba(163, 163, 163, 0.04) 1px, transparent 1px),
@@ -12,8 +15,17 @@ body {
   background-color: #131313;
   margin: 0;
   overflow-x: hidden;
+  overflow-y: auto;
+  color: white;
 }
 
+body::after {
+  content: '';
+  display: block;
+  height: 100px; /* Adjust based on your needs */
+}
+
+/* Hamburger button styles */
 .hamburger {
   position: fixed;
   top: 15px;
@@ -24,7 +36,7 @@ body {
   border: none;
   border-radius: 50%;
   cursor: pointer;
-  z-index: 1000;
+  z-index: 998;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -40,6 +52,7 @@ body {
   display: none;
 }
 
+/* Hamburger SVG */
 .hamburger svg {
   height: 24px;
   transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -55,6 +68,7 @@ body {
     stroke-dashoffset 300ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+/* SVG Animation */
 .hamburger:hover .line {
   stroke: #333;
 }
@@ -72,13 +86,15 @@ body {
   stroke-dashoffset: -32.42;
 }
 
+/* Navigation menu styles */
 nav {
-  background-color: rgba(36, 36, 36, 1);
+  background-color: rgba(36, 36, 36, 0.6);
   display: flex;
+  position: fixed;
   align-items: center;
   padding: 4px;
   color: white;
-  border-radius: 10px;
+  border-radius: 100px;
   text-align: left;
   position: fixed;
   top: 85px;
@@ -94,12 +110,14 @@ nav.active {
   transform: translateX(0);
 }
 
+/* Margin for the nav elements */
+
 nav > * {
   margin: 10px 0;
 }
 
-nav a,
-nav a:visited {
+/* Simple a decoration */
+a, a:visited {
   text-decoration: none;
   color: white;
 }
@@ -108,6 +126,7 @@ nav a:hover {
   color: grey;
 }
 
+/* Social button styles */
 .social-button {
   display: flex;
   justify-content: center;
@@ -130,10 +149,14 @@ nav a:hover {
   height: 20px;
 }
 
+
+/* Lipecz Detre Platon on the right side + the under text */
+
 #name {
-  position: absolute;
+  position: fixed;
   top: 20px;
   right: 20px;
+  z-index: 997;
   font-size: 2em;
   text-align: center;
   margin: 0;
@@ -142,8 +165,9 @@ nav a:hover {
   font-weight: 100;
 }
 
+/* Under Text */
 #moto {
-  position: absolute;
+  position: fixed;
   top: 60px;
   right: 20px;
   font-size: 1em;
@@ -151,10 +175,11 @@ nav a:hover {
   margin: 0;
   color: rgb(130, 130, 130);
 }
-/* FORM --------------------------------- */
+
+/* Form styles */
 .form {
-  position: fixed;
-  top: 40%;
+  position: relative;
+  top: 300px;
   left: 50%;
   transform: translate(-50%, -50%);
   max-width: 500px;
@@ -165,26 +190,28 @@ nav a:hover {
   opacity: 1;
   transition: opacity 0.5s ease-out;
   z-index: 1000;
+
 }
 
 .form h1 {
   font-size: 2em;
   margin-bottom: 20px;
   color: white;
-
   font-weight: 100;
 }
 
-.form.fade-out {
+/* Form's fade in and out */
+
+.fade-out {
   opacity: 0;
-  display: none 0.5s;
-}
-.form.fade-in {
-  opacity: 1;
-  display: block 0.5s;
+  pointer-events: none; 
 }
 
-/* FORM --------------------------------- */
+.fade-in {
+  opacity: 1;
+  pointer-events: auto;
+}
+
 .input {
   --input-focus: #000000;
   --font-color: #323232;
@@ -214,23 +241,21 @@ nav a:hover {
   border: 2px solid var(--input-focus);
 }
 
-/* HI AFTER FORM --------------------------------- */
+/* Greeting section styles */
 #hiParagraph {
-  position: fixed;
-  top: calc(120px + 70px);
-  left: 50%;
   transform: translate(-50%, 0);
-  max-width: 500px;
-  width: 90%;
   text-align: center;
   padding: 20px;
-  color: white;
-  opacity: 0;
-  transition: opacity 0.5s ease-in;
 }
 
 #hiParagraph.fade-in {
   opacity: 1;
+  pointer-events: auto; /* Make the element interactive */
+}
+
+#hiParagraph.fade-out {
+  opacity: 0;
+  pointer-events: none; /* Make the element non-interactive */
 }
 
 #hiParagraph p {
@@ -242,31 +267,24 @@ nav a:hover {
 
 #hiText {
   display: inline-block;
-  animation: colorFontChange 1s cubic-bezier(0.68, -0.55, 0.265, 1.55) infinite;
 }
 
 #hiTextContainer {
   transform: translate(-50%, 0);
   font-size: fill;
 }
-/* HI AFTER FORM --------------------------------- */
 
 #greetingDiv {
-  position: fixed;
-  top: 120px;
+  position: relative;
   left: 50%;
   max-width: 500px;
   text-align: center;
   color: white;
-  opacity: 0;
   transition: opacity 0.5s ease-in;
+
 }
 
-#greetingDiv.fade-in {
-  opacity: 1;
-}
-/* HI AFTER FORM --------------------------------- */
-
+/* Arrow container styles */
 .arrow-container {
   position: fixed;
   top: 28px;
@@ -331,70 +349,284 @@ nav a:hover {
   }
 }
 
-.github svg {
-  width: 26px;
-  height: 26px;
-  fill: #f2f2f2;
-}
-
-.github:hover svg {
-  fill: #333;
-}
-
-.linkedin svg {
-  fill: #f2f2f2;
-}
-
-.linkedin:hover svg {
-  fill: #333;
-}
-
-.home svg {
-  width: 26px;
-  height: 26px;
-  fill: #f2f2f2;
-}
-
-.home:hover svg {
-  fill: #333;
-}
-
-.home:hover {
-  cursor: pointer;
-}
-
+/* Social button icon styles */
+.github svg,
+.home svg,
 .code svg {
   width: 26px;
   height: 26px;
   fill: #f2f2f2;
 }
 
+.linkedin svg {
+  width: 20px;
+  height: 20px;
+  fill: #f2f2f2;
+}
+
+.github:hover svg,
+.linkedin:hover svg,
+.home:hover svg,
 .code:hover svg {
   fill: #333;
 }
 
+.home:hover,
 .code:hover {
   cursor: pointer;
 }
 
+/* Code container styles */
 .codeContainer {
-  position: fixed;
-  top: calc(120px + 120px); /* Adjust the second value for desired spacing */
+  position: absolute;
+  top: 200px;
   left: 50%;
   transform: translate(-50%, 0);
-  max-width: 500px;
-  width: 90%;
   text-align: center;
-  padding: 20px;
-  color: white;
-  opacity: 0;
+  padding: 10px 20px; /* Add padding to the left and right */
   transition: opacity 0.5s ease-in;
-}
-
-.codeContainer.fade-in {
-  opacity: 1;
-}
-
-.codeContainer.fade-out {
   opacity: 0;
+  width: 90%;
+  box-sizing: border-box; /* Include padding in the element's total width and height */
+}
+
+.codeContainer p {
+  color: rgb(130, 130, 130);
+}
+
+.codeTextContainer {
+  margin-bottom: 50px;
+}
+
+.fade-in {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.fade-out {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Project grid styles */
+.project-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  align-items: center;
+  text-align: center;
+
+}
+
+.project-description {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+#projectImage {
+  max-width: 300px;
+  position: relative;
+  transform: translate(-50%, 0);
+  margin: 0 auto;
+}
+
+  .responsive-img {
+    height: 100px;
+    display: block;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+  }
+
+.responsive-img:hover {
+  transform: scale(1.02);
+}
+
+@media (max-width: 768px) {
+  .codeContainer {
+    top: 150px; /* Adjust top position for smaller screens */
+    padding: 5px; /* Reduce padding for smaller screens */
+    width: 95%; /* Adjust width for better responsiveness */
+  }
+}
+  .responsive-img {
+    width: 50%;
+    max-height: none;
+  }
+
+  #projectImage {
+    left: 26%;
+  }
+
+  .enlarged-image-container {
+    width: 98vw;
+    height: 98vh;
+  }
+
+  .enlarged-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+.codeContainer .responsive-img {
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+/* Overlay styles */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  z-index: 1000;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  pointer-events: none;
+}
+
+.overlay.fade-in {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.overlay.fade-out {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Enlarged image container styles */
+.enlarged-image-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1001;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  pointer-events: none;
+  width: 95vw;
+  height: 95vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.enlarged-image-container.fade-in {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.enlarged-image-container.fade-out {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.enlarged-image-container img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  width: auto;
+  height: auto;
+}
+
+/* Project grid styles */
+.project-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  align-items: center;
+  text-align: center;
+}
+
+.project-description {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.responsive-img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  cursor: pointer;
+  opacity: 1;
+  transition: all 0.5s ease-in-out;
+  pointer-events: auto;
+}
+
+.responsive-img:hover { /* Cool looking thing like Hey you can press this image! */
+  transform: scale(1.02);
+}
+
+.codeContainer .responsive-img {
+  cursor: pointer;
+}
+
+.responsive-img.fade-in {
+  opacity: 1;
+  pointer-events: auto;
+}
+.responsive-img.fade-out {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Mobile-specific adjustments */
+@media (max-width: 768px) {
+  .project-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .responsive-img {
+    max-height: none;
+    margin: 0 auto;
+  }
+
+  .project-description {
+    text-align: center;
+    padding: 0 10px;
+  }
+
+  .project-description h2 {
+    margin-top: 10px;
+  }
+
+  .enlarged-image-container {
+    width: 98vw;
+    height: 98vh;
+  }
+
+  .enlarged-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+}
+
+/* Fade animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  to {
+    opacity: 0;
+    pointer-events: none;
+  }
 }

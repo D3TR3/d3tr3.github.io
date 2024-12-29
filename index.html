@@ -49,8 +49,23 @@
   </div>
 
   <div class="codeContainer">
-    <h1>Hi</h1>
-    <p>This website took me about 10h's to build</p>
+    <div class="codeTextContainer">
+      <h1>Projects</h1>
+      <p class="moto">You stumbled upon my projects, this is where all of my projects are stored.</p>
+    </div>
+    
+    <div class="project-grid">
+      <img class="responsive-img" src="img/web1.png" alt="" id="projectImage">
+      <div class="project-description">
+        <h2>Chill Out Hostel</h2>
+        <p>This project was developed as part of our Erasmus initiative, where we as a team of five collaborated to create a fully functional Booking and Check-In system within a span of two weeks. The project showcases our ability to work efficiently under tight deadlines while delivering a high-quality product.</p>
+      </div>
+    </div>
+  </div>
+  
+  <div id="overlay" class="overlay"></div>
+  <div id="enlargedImageContainer" class="enlarged-image-container">
+    <img id="enlargedImage" src="img/web1.png" alt="">
   </div>
 
 
@@ -106,7 +121,12 @@
     </div>
   </nav>
 
-
+  <div class="arrow-container">
+    <svg class="arrow-svg" width="60" height="30" viewBox="0 0 60 30">
+      <path d="M55 15 L10 15 M20 5 L10 15 L20 25" class="arrow-path" />
+    </svg>
+    <span class="arrow-text">socials, and more</span>
+  </div>
 
   <script src="script.js"></script>
 </body>

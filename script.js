@@ -1,21 +1,12 @@
-//LOADING THE CONTENT IN SHOWS THE LIL ARROW GUY
 document.addEventListener("DOMContentLoaded", () => {
-  const arrowHTML = `
-    <div class="arrow-container">
-      <svg class="arrow-svg" width="60" height="30" viewBox="0 0 60 30">
-        <path d="M55 15 L10 15 M20 5 L10 15 L20 25" class="arrow-path" />
-      </svg>
-      <span class="arrow-text">socials, and more</span>
-    </div>
-  `;
-  document.body.insertAdjacentHTML("beforeend", arrowHTML);
+  // Update colors for the name on the form page
+  setInterval(updateColors, 1000);
 
-  //QUERY SELECTORS LOLS
-
+  // Query Selectors
   const hamburgerInput = document.querySelector(".hamburger input");
   const nav = document.querySelector("nav");
-  const arrowContainer = document.querySelector(".arrow-container");
 
+  const arrowContainer = document.querySelector(".arrow-container");
   const nameInput = document.querySelector("#nameInput");
   const formContainer = document.querySelector(".form");
   const greetingDiv = document.querySelector("#greetingDiv");
@@ -23,27 +14,54 @@ document.addEventListener("DOMContentLoaded", () => {
   const code = document.querySelector(".code");
   const home = document.querySelector(".home");
 
-  //IF CHECKED DO THAT AND DO THIS U KNOW THE DRILL
+  const projectImage = document.getElementById("projectImage");
+  const overlay = document.getElementById("overlay");
+  const enlargedImageContainer = document.getElementById("enlargedImageContainer"
+  );
 
-  hamburgerInput.addEventListener("change", () => {
-    if (hamburgerInput.checked) {
-      arrowContainer.classList.add("fade-out");
-      nav.classList.add("active");
-    } else {
-      nav.classList.remove("active");
-      setTimeout(() => {
-        arrowContainer.classList.remove("fade-out");
-      }, 300);
-    }
+  fadeOut([greetingDiv])
+
+  // Fade in and out functions
+  function fadeIn(elements) {
+    elements.forEach(element => {
+      element.classList.remove("fade-out");
+      element.classList.add("fade-in");
+    });
+  }
+
+  function fadeOut(elements) {
+    elements.forEach(element => {
+      element.classList.remove("fade-in");
+      element.classList.add("fade-out");
+    });
+  }
+
+  projectImage.addEventListener("click", function () {
+    overlay.classList.add("fade-in");
+    enlargedImageContainer.classList.add("fade-in");
   });
-  const userName = "";
-  //PRESSING ENTER AND SHOWING NAME
-  nameInput.addEventListener("keypress", (event) => {
-    if (event.key === "Enter" && nameInput.value.trim() !== "") {
+
+  function handleClickingImageOrOverlay() {
+    overlay.classList.remove("fade-in");
+    overlay.classList.add("fade-out");
+
+    enlargedImageContainer.classList.remove("fade-in");
+    enlargedImageContainer.classList.add("fade-out");
+
+    overlay.classList.remove("fade-out");
+    enlargedImageContainer.classList.remove("fade-out");
+
+  }
+
+  overlay.addEventListener("click", handleClickingImageOrOverlay);
+  enlargedImageContainer.addEventListener("click", handleClickingImageOrOverlay);
+
+  // Forms enter key listener
+  nameInput.addEventListener("keypress", (e) => {
+    if (e.key === "Enter" && nameInput.value.trim() !== "") {
       const userName = nameInput.value.trim();
 
       hiText.textContent = userName;
-      setInterval(updateColors, 1000);
       formContainer.classList.remove("fade-in");
       formContainer.classList.add("fade-out");
 
@@ -55,7 +73,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  //CLICKING OUTSIDE OF HAMBURGER MENU
+  // Listener if clicked outside hamburger menu
   document.addEventListener("click", (e) => {
     if (
       !nav.contains(e.target) &&
@@ -69,34 +87,29 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  //CLICKING THE CODE BUTTON
+
+
+  // Code navbar click button
   code.addEventListener("click", () => {
-    greetingDiv.classList.add("fade-out");
-    greetingDiv.classList.remove("fade-in");
-
-    hiParagraph.classList.add("fade-out");
-    hiParagraph.classList.remove("fade-in");
-
-    formContainer.classList.add("fade-out");
-    formContainer.classList.remove("fade-in");
-
-    codeContainer.classList.remove("fade-out");
-    codeContainer.classList.add("fade-in");
+    fadeOut([greetingDiv, hiParagraph, formContainer]);
+    fadeIn([codeContainer, projectImage]);
   });
 
-  //CLICKING THE HOME BUTTON
+  // Home navbar click button
   home.addEventListener("click", () => {
-    formContainer.classList.remove("fade-out");
-    formContainer.classList.add("fade-in");
+    fadeIn([formContainer, hiParagraph]);
+    fadeOut([greetingDiv, codeContainer, projectImage]);
+  });
 
-    greetingDiv.classList.add("fade-out");
-    greetingDiv.classList.remove("fade-in");
-
-    hiParagraph.classList.remove("fade-out");
-    hiParagraph.classList.add("fade-in");
-
-    codeContainer.classList.remove("fade-in");
-    codeContainer.classList.add("fade-out");
+   // If hamburger menu is checked 
+   hamburgerInput.addEventListener("change", () => {
+    if (hamburgerInput.checked) {
+      arrowContainer.classList.add("fade-out");
+      nav.classList.add("active");
+    } else {
+      nav.classList.remove("active");
+      arrowContainer.classList.remove("fade-out");
+    }
   });
 
   //NAME COLOR GENERATOR + ANIMATION + FONT WEIGHT
