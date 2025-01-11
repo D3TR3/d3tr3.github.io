@@ -1,0 +1,147 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+    scroll-behavior: smooth;
+}
+
+#navbar {
+    transform: translateX(-100%);
+    transition: all 0.1s ease-in-out;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+#navbar.visible {
+    transform: translateX(0);
+}
+
+.hamburger-line {
+    transition: all 0.3s ease-in-out;
+}
+
+.menu-button.active .hamburger-line:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.menu-button.active .hamburger-line:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-button.active .hamburger-line:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+.appearAnimation {
+    opacity: 0;
+    filter: blur(5px);
+    transform: translateY(50%);
+    transition: 0.5s;
+}
+
+.appearImage {
+    opacity: 0;
+    filter: blur(5px);
+    transform: translateX(-100%);
+    transition: 0.5s;
+}
+
+@media(prefers-reduced-motion) { /*For people who don't like the animation :(((*/
+    .appearAnimation {
+        transition: none;
+    }
+    .appearImage {
+        transition: none;
+    }
+}
+
+.showAnimation {
+    opacity: 1;
+    filter:blur(0);
+    transform: translateY(0);
+    transform: translateX(0);
+}
+
+.appearAnimation:nth-child(2) {
+    transition-delay: 200ms;
+}
+.appearAnimation:nth-child(3) {
+    transition-delay: 400ms;
+}
+.appearAnimation:nth-child(4) {
+    transition-delay: 600ms;
+}
+.appearAnimation:nth-child(5) {
+    transition-delay: 800ms;
+}
+.appearAnimation:nth-child(6) {
+    transition-delay: 1000ms;
+}
+.appearAnimation:nth-child(7) {
+    transition-delay: 1200ms;
+}
+
+
+.appearImage:nth-child(2) {
+    transition-delay: 200ms;
+}
+.appearImage:nth-child(3) {
+    transition-delay: 400ms;
+}
+.appearImage:nth-child(4) {
+    transition-delay: 600ms;
+}
+.appearImage:nth-child(5) {
+    transition-delay: 800ms;
+}
+.appearImage:nth-child(6) {
+    transition-delay: 1000ms;
+}
+.appearImage:nth-child(7) {
+    transition-delay: 1200ms;
+}
+
+
+.bounce {
+      animation: bounce 1s infinite;
+    }
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(25px);
+      }
+    }
+
+@keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.animate-gradient {
+    animation: gradient 3s ease infinite;
+}
+
+.bg-300\% {
+    background-size: 300% 300%;
+}
+
+.text-shadow-glow {
+    text-shadow: 0 0 20px rgba(192, 132, 252, 0.5);
+}
+
+body {
+    background-color: #0f0f0f;
+    color: #ffffff;
+    scroll-behavior: smooth;
+}
+
+.bg-color-body {
+    background-color: #0f0f0f;
+}
+
+.bg-mine {
+    background-color: rgb(15, 15, 15, 0.6);
+}
