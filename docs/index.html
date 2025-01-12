@@ -3,8 +3,8 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="./output.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+    <link href="/docs/output.css" rel="stylesheet">
     <title>Lipécz Detre Platón</title>
 </head>
 
@@ -13,7 +13,13 @@
     <!-- Enlarged Image Modal -->
     <div id="enlargedImageModal"
         class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center hidden z-50">
-        <img src="https://res.cloudinary.com/dafkxp67j/image/upload/v1736632451/web1_tndi7q.png" id="enlargedImage" class="max-h-full rounded">
+        <!-- Added close button -->
+        <button id="closeModal" class="absolute top-3 right-3 flex flex-col justify-center items-center w-12 h-12 rounded-lg transition-all duration-300 bg-gray-800/30 border border-gray-700/30 hover:bg-gray-700/30 hover:scale-110 focus:outline-none">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+        </button>
+        <img src="/img/web1.png" id="enlargedImage" class="max-h-full rounded">
     </div>
 
     <!-- Navbar -->
@@ -57,18 +63,6 @@
             </nav>
         </div>
     </div>
-
-    <!-- Text Right Side Name + UnderText -->
-    <!-- <div class="flex-1 text-right p-4 bg-color-body rounded-lg">
-            <a href="https://hu.wikipedia.org/wiki/Detre_(keresztn%C3%A9v)"
-                class="text-3xl text-white transition ease-in-out delay-50 hover:scale-110" target="_blank">Lipécz Detre
-                Platón</a>
-            <p class="text-sm text-gray-500 ">Front-End Developer</p>
-        </div> -->
-    </div>
-    <!--HOME !-->
-
-
 
     <div class="flex justify-center items-center pb-96 lg:pt-52" id="home">
         <section class="appearAnimation">
@@ -114,57 +108,57 @@
         <div class="grid gap-4">
             <div>
                 <img class="h-auto max-w-full rounded-lg appearImage transition ease-in-out delay-30 hover:scale-105"
-                    src="https://res.cloudinary.com/dafkxp67j/image/upload/v1736632446/1_k2hddd.jpg" alt="">
+                    src="/img/1.jpeg" alt="">
             </div>
             <div>
                 <img class="h-auto max-w-full rounded-lg appearImage transition ease-in-out delay-30 hover:scale-105"
-                    src="https://res.cloudinary.com/dafkxp67j/image/upload/v1736632451/2_eqwtv8.jpg" alt="">
+                    src="/img/3.jpeg" alt="">
             </div>
             <div>
                 <img class="h-auto max-w-full rounded-lg appearImage transition ease-in-out delay-30 hover:scale-105"
-                    src="https://res.cloudinary.com/dafkxp67j/image/upload/v1736632449/3_d8y4zs.jpg" alt="">
-            </div>
-        </div>
-        <div class="grid gap-4">
-            <div>
-                <img class="h-auto max-w-full rounded-lg appearImage transition ease-in-out delay-30 hover:scale-105"
-                    src="https://res.cloudinary.com/dafkxp67j/image/upload/v1736632457/5_mxjewr.jpg" alt="">
-            </div>
-            <div>
-                <img class="h-auto max-w-full rounded-lg appearImage transition ease-in-out delay-30 hover:scale-105"
-                    src="https://res.cloudinary.com/dafkxp67j/image/upload/v1736632452/6_gf4rpf.jpg" alt="">
-            </div>
-            <div>
-                <img class="h-auto max-w-full rounded-lg appearImage transition ease-in-out delay-30 hover:scale-105"
-                    src="https://res.cloudinary.com/dafkxp67j/image/upload/v1736632450/4_dl7sg9.jpg" alt="">
+                    src="/img/2.jpeg" alt="">
             </div>
         </div>
         <div class="grid gap-4">
             <div>
                 <img class="h-auto max-w-full rounded-lg appearImage transition ease-in-out delay-30 hover:scale-105"
-                    src="https://res.cloudinary.com/dafkxp67j/image/upload/v1736632447/9_kiu8vq.jpg" alt="">
+                    src="/img/5.jpeg" alt="">
             </div>
             <div>
                 <img class="h-auto max-w-full rounded-lg appearImage transition ease-in-out delay-30 hover:scale-105"
-                    src="https://res.cloudinary.com/dafkxp67j/image/upload/v1736632452/12_q8jhyf.jpg" alt="">
+                    src="/img/6.jpeg" alt="">
             </div>
             <div>
                 <img class="h-auto max-w-full rounded-lg appearImage transition ease-in-out delay-30 hover:scale-105"
-                    src="https://res.cloudinary.com/dafkxp67j/image/upload/v1736632452/7_qklc2x.jpg" alt="">
+                    src="/img/4.jpeg" alt="">
             </div>
         </div>
         <div class="grid gap-4">
             <div>
                 <img class="h-auto max-w-full rounded-lg appearImage transition ease-in-out delay-30 hover:scale-105"
-                    src="https://res.cloudinary.com/dafkxp67j/image/upload/v1736632455/8_xqplom.jpg" alt="">
+                    src="/img/9.jpeg" alt="">
             </div>
             <div>
                 <img class="h-auto max-w-full rounded-lg appearImage transition ease-in-out delay-30 hover:scale-105"
-                    src="https://res.cloudinary.com/dafkxp67j/image/upload/v1736632446/10_xeyrtv.jpg" alt="">
+                    src="/img/8.jpeg" alt="">
             </div>
             <div>
                 <img class="h-auto max-w-full rounded-lg appearImage transition ease-in-out delay-30 hover:scale-105"
-                    src="https://res.cloudinary.com/dafkxp67j/image/upload/v1736632449/11_hzh29r.jpg" alt="">
+                    src="/img/7.jpeg" alt="">
+            </div>
+        </div>
+        <div class="grid gap-4">
+            <div>
+                <img class="h-auto max-w-full rounded-lg appearImage transition ease-in-out delay-30 hover:scale-105"
+                    src="/img/10.jpeg" alt="">
+            </div>
+            <div>
+                <img class="h-auto max-w-full rounded-lg appearImage transition ease-in-out delay-30 hover:scale-105"
+                    src="/img/12.jpeg" alt="">
+            </div>
+            <div>
+                <img class="h-auto max-w-full rounded-lg appearImage transition ease-in-out delay-30 hover:scale-105"
+                    src="/img/11.jpeg" alt="">
             </div>
         </div>
     </div>
@@ -267,14 +261,16 @@
 
     <section id="portfolio" class="pb-96 pt-52">
         <h1 class="text-6xl text-center text-white font-extrabold tracking-tigh appearAnimation pb-16">Portfolio</h1>
-        <div class="flex flex-col md:flex-row justify-center items-center lg:px-64 pl-6">
+        <!-- Changed pl-6 to px-6 for consistent padding on both sides -->
+        <div class="flex flex-col md:flex-row justify-center items-center lg:px-64 px-6">
             <div class="flex-1 appearImage">
                 <div class="relative">
-                    <img src="https://res.cloudinary.com/dafkxp67j/image/upload/v1736632451/web1_tndi7q.png" id="image"
+                    <img src="/img/web1.png" id="image"
                         class="rounded transition ease-in-out delay-50 hover:scale-105 lg:max-w-96 max-w-72 cursor-pointer">
                 </div>
             </div>
-            <div class="flex-1 lg:px-8 px-6 py-12">
+            <!-- Removed redundant px-6 since it's handled by parent -->
+            <div class="flex-1 lg:px-8 py-12">
                 <h1 class="text-3xl text-center text-white font-extrabold tracking-tigh appearAnimation pb-8 lg:pt-0 md:pt-0 sm:pt-24">
                     Chill Out Hostel</h1>
                 <p class="text-2xl text-gray-500 appearAnimation md:text-left text-center mb-8">This project was developed as
@@ -328,7 +324,13 @@
                     </button>
                 </div>
             </div>
+            
         </div>
+        <!-- portfolio message -->
+        <p class="text-center text-gray-500 mt-16 mb-8 text-sm appearAnimation px-6 lg:px-64">
+            I'm actively seeking opportunities to expand my portfolio. <a href="#contact" class="hover:text-white transition-colors duration-300">Click here to collaborate!</a>
+        </p>
+
         <div class=" w-full flex text-center justify-center">
             <svg class="w-8 h-40 text-white bounce" fill="none" stroke="currentColor" stroke-width="3"
                 viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -344,7 +346,7 @@
         <div class="flex flex-col md:flex-row justify-center items-center lg:px-64 px-6">
             <div class="flex-1">
                 <p class="text-gray-500 pt-7 text-2xl md:text-left text-center appearAnimation">
-                    Let's connect! Whether you have a project in mind or just want to chat about web development, I'd love to hear from you. You can find me on these platforms:
+                    Let's connect! Whether you have a project in mind or just want to chat about web development, I'd love to hear from you.
                 </p>
             </div>
             <div class="flex-1 py-12">
