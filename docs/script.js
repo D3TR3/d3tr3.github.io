@@ -18,6 +18,7 @@ const image = document.getElementById('image');
 const enlargedImageModal = document.getElementById('enlargedImageModal');
 const enlargedImage = document.getElementById('enlargedImage');
 const scrollToTopButton = document.getElementById('scrollToTop');
+const closeModal = document.getElementById('closeModal');
 
 // Smooth scrolling functionality for navigation links
 document.querySelectorAll('nav a').forEach(link => {
@@ -102,12 +103,10 @@ document.addEventListener('click', (event) => {
 
 // Scroll to Top button visibility control
 window.addEventListener('scroll', () => {
-    // Show button when scrolling down past 500px
     if (window.scrollY > 500) {
         scrollToTopButton.classList.remove('opacity-0', 'invisible');
         scrollToTopButton.classList.add('opacity-100');
     } else {
-        // Hide button when near top of page
         scrollToTopButton.classList.add('opacity-0');
         scrollToTopButton.classList.remove('opacity-100');
         setTimeout(() => {
