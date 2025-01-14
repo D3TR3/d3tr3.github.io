@@ -42,9 +42,17 @@ document.addEventListener('DOMContentLoaded', () => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 navLinks.forEach(link => {
+                    // Remove previous active classes
                     link.classList.remove('text-blue-600', 'font-bold');
-                    if (link.getAttribute('href').substring(1) === entry.target.id) {
-                        link.classList.add('text-blue-600', 'font-bold');
+                    
+                    // Get the href attribute and check if it's valid
+                    const href = link.getAttribute('href');
+                    if (href && entry.target.id) {
+                        // Compare after removing the '#' from href if it exists
+                        const linkTarget = href.startsWith('#') ? href.substring(1) : href;
+                        if (linkTarget === entry.target.id) {
+                            link.classList.add('text-blue-600', 'font-bold');
+                        }
                     }
                 });
             }
