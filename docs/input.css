@@ -145,3 +145,78 @@ body {
 .bg-mine {
     background-color: rgb(15, 15, 15, 0.6);
 }
+
+.link-underline {
+    position: relative;
+    text-decoration: none;
+}
+
+.link-underline::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 1.5px;
+    bottom: -2px;
+    left: 50%;
+    background-color: currentColor;
+    transition: width 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.link-underline:hover::after {
+    width: 100%;
+}
+
+/* Blob styling */
+#blob {
+    background: linear-gradient(to right, #ffd700, #ffa500);
+    height: 400px;
+    aspect-ratio: 1;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    translate: -50% -50%;
+    border-radius: 50%;
+    background-size: cover;
+    background-position: center;
+    animation: rotate 20s infinite, squish 20s ease infinite;
+    transform-origin: center;
+    opacity: 0.5;
+    filter: blur(100px);
+    z-index: -1;
+    pointer-events: none;
+}
+
+#blur {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    z-index: -1;
+    backdrop-filter: blur(100px);
+}
+
+@keyframes rotate {
+    from {
+        rotate: 0deg;
+    }
+    
+    50% {
+        scale: 1 1.5;
+    }
+    
+    to {
+        rotate: 360deg;
+    }
+}
+
+@keyframes squish {
+    0% {
+        border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    }
+    50% {
+        border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+    }
+    100% {
+        border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    }
+}

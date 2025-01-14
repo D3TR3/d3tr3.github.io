@@ -65,6 +65,13 @@ enlargedImageModal.addEventListener('click', () => {
     enlargedImageModal.classList.add('hidden');
 });
 
+const viewProjectBtn = document.querySelector('[data-view-project]');
+if (viewProjectBtn) {
+    viewProjectBtn.addEventListener('click', () => {
+        enlargedImageModal.classList.remove('hidden');
+    });
+}
+
 // Initialize animation observers for content elements
 appear.forEach((element) => {
     observer.observe(element);
@@ -124,4 +131,52 @@ scrollToTopButton.addEventListener('click', () => {
         behavior: 'smooth'
     });
 });
+
+// Blob animation with fallback for mobile
+const blob = document.getElementById("blob");
+
+// Function to create smoother random movement for the blob
+function moveBlob() {
+    const viewportWidth = window.innerWidth;
+    const viewportHeight = window.innerHeight;
+    
+    // Create more natural movement bounds
+    const maxX = viewportWidth * 0.7;
+    const maxY = viewportHeight * 0.7;
+    const minX = viewportWidth * 0.3;
+    const minY = viewportHeight * 0.3;
+    
+    const randomX = minX + Math.random() * (maxX - minX);
+    const randomY = minY + Math.random() * (maxY - minY);
+    
+    blob.animate({
+        left: `${randomX}px`,
+        top: `${randomY}px`
+    }, {
+        duration: 2000,
+        fill: "forwards",
+        easing: "ease-in-out"
+    });
+}
+
+// Check if pointer events are supported
+if (window.matchMedia("(pointer: fine)").matches) {
+    // Desktop - follow cursor
+    document.body.onpointermove = event => {
+        const { clientX, clientY } = event;
+        
+        blob.animate({
+            left: `${clientX}px`,
+            top: `${clientY}px`
+        }, {
+            duration: 3000,
+            fill: "forwards",
+            easing: "ease-in-out"
+        });
+    };
+} else {
+    // Mobile - smoother random movement
+    setInterval(moveBlob, 2000); // More frequent updates
+    moveBlob(); // Initial movement
+}
 
