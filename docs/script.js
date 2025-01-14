@@ -194,3 +194,32 @@ document.addEventListener('click', (e) => {
     }
 });
 
+
+// Age Calculator
+function calculateAge(birthDate) {
+    const currentDate = new Date();
+    const birth = new Date(birthDate);
+    let age = currentDate.getFullYear() - birth.getFullYear();
+    const monthDiff = currentDate.getMonth() - birth.getMonth();
+    
+    if (monthDiff < 0 || (monthDiff === 0 && currentDate.getDate() < birth.getDate())) {
+        age--;
+    }
+    
+    return age;
+}
+
+// Update age in real-time
+function updateAge() {
+    const ageElement = document.getElementById('age');
+    if (ageElement) {
+        const age = calculateAge('2006-03-16'); // Your birthdate in YYYY-MM-DD format
+        ageElement.textContent = age;
+    }
+}
+
+// Initial age calculation
+updateAge();
+
+// Update age every day (optional, but ensures accuracy if the page is left open)
+setInterval(updateAge, 1000 * 60 * 60 * 24);
