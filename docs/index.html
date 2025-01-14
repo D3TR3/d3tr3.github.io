@@ -9,15 +9,16 @@
 </head>
 
 <body class="bg-color-body">
-    <!-- Blob -->
+    <div id="home"></div>
     <div id="blob"></div>
     <div id="blur"></div>
+
+
     <!-- Enlarged Image Modal -->
     <div id="enlargedImageModal"
         class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center hidden z-50">
         <img src="https://res.cloudinary.com/dafkxp67j/image/upload/w_800,q_80,f_auto/v1736632451/web1_tndi7q.png"
             id="enlargedImage" class="max-h-full rounded">
-        <!-- Added close button -->
         <button id="closeModal"
             class="absolute top-3 right-3 flex flex-col justify-center items-center w-12 h-12 rounded-lg transition-all duration-300 bg-gray-800/30 border border-gray-700/30 hover:bg-gray-700/30 hover:scale-110 focus:outline-none">
             <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -42,8 +43,8 @@
         <div id="navbar"
             class="hidden fixed top-20 left-3 py-6 px-4 bg-gray-800/30 backdrop-blur-sm rounded-lg border border-gray-700/30">
             <nav class="space-y-8">
-                <a href="#home"
-                    class="group relative flex justify-center text-white transition-all duration-300 hover:scale-110 hover:text-yellow-100">
+                <a data-scroll-to="home"
+                    class="group relative flex justify-center text-white transition-all duration-300 hover:scale-110 hover:text-yellow-100 cursor-pointer">
                     <span
                         class="absolute left-14 top-1/2 -translate-y-1/2 w-auto min-w-max origin-left scale-0 rounded-lg bg-gray-800/30 backdrop-blur-sm border border-gray-700/30 p-2 text-xs text-white group-hover:scale-100 transition-all duration-300">
                         Home
@@ -55,8 +56,8 @@
                         </path>
                     </svg>
                 </a>
-                <a href="#gallery"
-                    class="group relative flex justify-center text-white transition-all duration-300 hover:scale-110 hover:text-yellow-100">
+                <a data-scroll-to="gallery"
+                    class="group relative flex justify-center text-white transition-all duration-300 hover:scale-110 hover:text-yellow-100 cursor-pointer">
                     <span
                         class="absolute left-14 top-1/2 -translate-y-1/2 w-auto min-w-max origin-left scale-0 rounded-lg bg-gray-800/30 backdrop-blur-sm border border-gray-700/30 p-2 text-xs text-white group-hover:scale-100 transition-all duration-300">
                         Photos of Me
@@ -67,8 +68,8 @@
                         </path>
                     </svg>
                 </a>
-                <a href="#about"
-                    class="group relative flex justify-center text-white transition-all duration-300 hover:scale-110 hover:text-yellow-100">
+                <a data-scroll-to="about"
+                    class="group relative flex justify-center text-white transition-all duration-300 hover:scale-110 hover:text-yellow-100 cursor-pointer">
                     <span
                         class="absolute left-14 top-1/2 -translate-y-1/2 w-auto min-w-max origin-left scale-0 rounded-lg bg-gray-800/30 backdrop-blur-sm border border-gray-700/30 p-2 text-xs text-white group-hover:scale-100 transition-all duration-300">
                         About Me & Skills
@@ -79,8 +80,8 @@
                     </svg>
                 </a>
 
-                <a href="#portfolio"
-                    class="group relative flex justify-center text-white transition-all duration-300 hover:scale-110 hover:text-yellow-100">
+                <a data-scroll-to="portfolio"
+                    class="group relative flex justify-center text-white transition-all duration-300 hover:scale-110 hover:text-yellow-100 cursor-pointer">
                     <span
                         class="absolute left-14 top-1/2 -translate-y-1/2 w-auto min-w-max origin-left scale-0 rounded-lg bg-gray-800/30 backdrop-blur-sm border border-gray-700/30 p-2 text-xs text-white group-hover:scale-100 transition-all duration-300">
                         My Projects
@@ -91,8 +92,8 @@
                         </path>
                     </svg>
                 </a>
-                <a href="#contact"
-                    class="group relative flex justify-center text-white transition-all duration-300 hover:scale-110 hover:text-yellow-100">
+                <a data-scroll-to="contact"
+                    class="group relative flex justify-center text-white transition-all duration-300 hover:scale-110 hover:text-yellow-100 cursor-pointer">
                     <span
                         class="absolute left-14 top-1/2 -translate-y-1/2 w-auto min-w-max origin-left scale-0 rounded-lg bg-gray-800/30 backdrop-blur-sm border border-gray-700/30 p-2 text-xs text-white group-hover:scale-100 transition-all duration-300">
                         Get in Touch
@@ -109,10 +110,11 @@
 
     </div>
     <!--HOME !-->
-    <div class="flex justify-center items-center pb-2 lg:pb-24 lg:pt-52" id="#home">
+    <div class="flex justify-center items-center pb-2 lg:pb-24 lg:pt-52">
         <section>
             <div class="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 sm:py-10">
-                <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl lg:text-6xl appearAnimation">
+                <h1
+                    class="mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl lg:text-6xl appearAnimation">
                     Hi! My name is
                     <span
                         class="inline-block animate-gradient bg-gradient-to-r from-yellow-200 via-yellow-400 to-yellow-200 bg-clip-text text-transparent bg-300% hover:scale-110 transition-transform duration-300 hover:text-shadow-glow cursor-pointer font-black">
@@ -123,18 +125,22 @@
                     currently pursuing studies to become a Front-End Developer, creating
                     visually engaging and functional websites. I'd like to work with <b>YOU!</b></p>
                 <div class="flex justify-center space-x-4 appearAnimation">
-                    <a href="#about" 
-                        class="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white hover:text-yellow-100 rounded-lg bg-gray-800/30 border border-gray-700/30 hover:scale-110 transition-all duration-300">
+                    <a data-scroll-to="about"
+                        class="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white hover:text-yellow-100 rounded-lg bg-gray-800/30 border border-gray-700/30 hover:scale-110 transition-all duration-300 cursor-pointer">
                         About Me
-                        <svg class="w-3.5 h-3.5 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
+                        <svg class="w-3.5 h-3.5 ms-2 rtl:rotate-180" aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M1 5h12m0 0L9 1m4 4L9 9" />
                         </svg>
                     </a>
-                    <a href="#contact"
-                        class="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white hover:text-yellow-100 rounded-lg bg-gray-800/30 border border-gray-700/30 hover:scale-110 transition-all duration-300">
+                    <a data-scroll-to="contact"
+                        class="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white hover:text-yellow-100 rounded-lg bg-gray-800/30 border border-gray-700/30 hover:scale-110 transition-all duration-300 cursor-pointer">
                         Contact Me
-                        <svg class="w-3.5 h-3.5 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
+                        <svg class="w-3.5 h-3.5 ms-2 rtl:rotate-180" aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M1 5h12m0 0L9 1m4 4L9 9" />
                         </svg>
                     </a>
                 </div>
@@ -420,8 +426,9 @@
         </div>
         <!-- portfolio message -->
         <p class="text-center text-gray-300 mt-16 mb-8 text-sm appearAnimation px-6 lg:px-64">
-            I'm actively seeking opportunities to expand my portfolio. <a href="#contact"
-                class="hover:text-white transition-colors duration-300 link-underline">Click here to collaborate!</a>
+            I'm actively seeking opportunities to expand my portfolio. <a data-scroll-to="contact"
+                class="hover:text-white transition-colors duration-300 link-underline cursor-pointer">Click here to
+                collaborate!</a>
         </p>
         <div class=" w-full flex text-center justify-center">
             <svg class="w-8 h-40 text-white bounce" fill="none" stroke="currentColor" stroke-width="3"

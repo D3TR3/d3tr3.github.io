@@ -176,7 +176,21 @@ if (window.matchMedia("(pointer: fine)").matches) {
     };
 } else {
     // Mobile - smoother random movement
-    setInterval(moveBlob, 2000); // More frequent updates
+    setInterval(moveBlob, 2000); 
     moveBlob(); // Initial movement
 }
+
+document.addEventListener('click', (e) => {
+    const target = e.target.closest('[data-scroll-to]');
+    if (!target) return;
+    
+    e.preventDefault();
+    const elementToScrollTo = document.querySelector(`#${target.dataset.scrollTo}`);
+    if (elementToScrollTo) {
+        elementToScrollTo.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+        });
+    }
+});
 
