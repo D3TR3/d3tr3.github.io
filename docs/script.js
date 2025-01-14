@@ -21,15 +21,17 @@ const scrollToTopButton = document.getElementById('scrollToTop');
 const closeModal = document.getElementById('closeModal');
 
 // Smooth scrolling functionality for navigation links
-document.querySelectorAll('nav a').forEach(link => {
+document.querySelectorAll('[data-scroll-to]').forEach(link => {
     link.addEventListener('click', function(e) {
         e.preventDefault();
-        const targetId = this.getAttribute('href');
-        const targetSection = document.querySelector(targetId);
-        targetSection.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-        });
+        const targetId = this.getAttribute('data-scroll-to');
+        const targetSection = document.getElementById(targetId);
+        if (targetSection) {
+            targetSection.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
     });
 });
 
