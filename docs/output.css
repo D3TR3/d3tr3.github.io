@@ -1016,6 +1016,10 @@ video {
   padding-bottom: 0.5rem;
 }
 
+.pb-44 {
+  padding-bottom: 11rem;
+}
+
 .pb-52 {
   padding-bottom: 13rem;
 }
@@ -1520,14 +1524,14 @@ body {
     max-width: 24rem;
   }
 
+  .lg\:px-24 {
+    padding-left: 6rem;
+    padding-right: 6rem;
+  }
+
   .lg\:px-48 {
     padding-left: 12rem;
     padding-right: 12rem;
-  }
-
-  .lg\:px-64 {
-    padding-left: 16rem;
-    padding-right: 16rem;
   }
 
   .lg\:px-8 {
@@ -1560,6 +1564,13 @@ body {
   .lg\:text-xl {
     font-size: 1.25rem;
     line-height: 1.75rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .xl\:px-64 {
+    padding-left: 16rem;
+    padding-right: 16rem;
   }
 }
 
