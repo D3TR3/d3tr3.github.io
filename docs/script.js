@@ -1,4 +1,3 @@
-// Animation observer for elements with fade-in and slide effects
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -9,7 +8,6 @@ const observer = new IntersectionObserver((entries) => {
     });
 });
 
-// DOM element selections
 const menuButton = document.getElementById('menu-button');
 const navbar = document.getElementById('navbar');
 const appear = document.querySelectorAll('.appearAnimation');
@@ -20,9 +18,8 @@ const enlargedImage = document.getElementById('enlargedImage');
 const scrollToTopButton = document.getElementById('scrollToTop');
 const closeModal = document.getElementById('closeModal');
 
-// Smooth scrolling functionality for navigation links
 document.querySelectorAll('[data-scroll-to]').forEach(link => {
-    link.addEventListener('click', function(e) {
+    link.addEventListener('click', function (e) {
         e.preventDefault();
         const targetId = this.getAttribute('data-scroll-to');
         const targetSection = document.getElementById(targetId);
@@ -35,7 +32,6 @@ document.querySelectorAll('[data-scroll-to]').forEach(link => {
     });
 });
 
-// Active section highlighting in navigation
 document.addEventListener('DOMContentLoaded', () => {
     const sections = document.querySelectorAll('section');
     const navLinks = document.querySelectorAll('nav a');
@@ -44,13 +40,11 @@ document.addEventListener('DOMContentLoaded', () => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 navLinks.forEach(link => {
-                    // Remove previous active classes
                     link.classList.remove('text-blue-600', 'font-bold');
-                    
-                    // Get the href attribute and check if it's valid
+
                     const href = link.getAttribute('href');
                     if (href && entry.target.id) {
-                        // Compare after removing the '#' from href if it exists
+
                         const linkTarget = href.startsWith('#') ? href.substring(1) : href;
                         if (linkTarget === entry.target.id) {
                             link.classList.add('text-blue-600', 'font-bold');
@@ -66,7 +60,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// Image modal functionality
 image.addEventListener('click', () => {
     enlargedImageModal.classList.remove('hidden');
 });
@@ -82,7 +75,38 @@ if (viewProjectBtn) {
     });
 }
 
-// Initialize animation observers for content elements
+document.querySelectorAll('[data-portfolio-image]').forEach(image => {
+    image.addEventListener('click', () => {
+        const imageUrl = image.getAttribute('src');
+        enlargedImage.src = imageUrl;
+        enlargedImageModal.classList.remove('hidden');
+    });
+});
+
+// Remove old event listeners
+document.querySelectorAll('[data-portfolio-image], [data-view-project]').forEach(element => {
+    element.addEventListener('click', function () {
+        // Find the closest portfolio section
+        const portfolioSection = this.closest('.flex-col.md\\:flex-row');
+        if (portfolioSection) {
+            // Find the image within this section
+            const imageElement = portfolioSection.querySelector('img');
+            if (imageElement) {
+                const imageUrl = imageElement.getAttribute('src');
+                enlargedImage.src = imageUrl;
+                enlargedImageModal.classList.remove('hidden');
+            }
+        }
+    });
+});
+
+// Close modal when clicking the close button or outside the image
+enlargedImageModal.addEventListener('click', (e) => {
+    if (e.target === enlargedImageModal || e.target.closest('#closeModal')) {
+        enlargedImageModal.classList.add('hidden');
+    }
+});
+
 appear.forEach((element) => {
     observer.observe(element);
 });
@@ -91,7 +115,6 @@ appearImages.forEach((element) => {
     observer.observe(element);
 });
 
-// Mobile menu button toggle functionality
 menuButton.addEventListener('click', (event) => {
     menuButton.classList.toggle('active');
     if (navbar.classList.contains('visible')) {
@@ -107,7 +130,6 @@ menuButton.addEventListener('click', (event) => {
     }
 });
 
-// Close mobile menu when clicking outside
 document.addEventListener('click', (event) => {
     if (!navbar.contains(event.target) && !menuButton.contains(event.target)) {
         menuButton.classList.remove('active');
@@ -118,7 +140,6 @@ document.addEventListener('click', (event) => {
     }
 });
 
-// Scroll to Top button visibility control
 window.addEventListener('scroll', () => {
     if (window.scrollY > 500) {
         scrollToTopButton.classList.remove('opacity-0', 'invisible');
@@ -134,7 +155,6 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// Smooth scroll to top when clicking the scroll button
 scrollToTopButton.addEventListener('click', () => {
     window.scrollTo({
         top: 0,
@@ -142,23 +162,21 @@ scrollToTopButton.addEventListener('click', () => {
     });
 });
 
-// Blob animation with fallback for mobile
 const blob = document.getElementById("blob");
 
-// Function to create smoother random movement for the blob
 function moveBlob() {
     const viewportWidth = window.innerWidth;
     const viewportHeight = window.innerHeight;
-    
+
     // Create more natural movement bounds
     const maxX = viewportWidth * 0.7;
     const maxY = viewportHeight * 0.7;
     const minX = viewportWidth * 0.3;
     const minY = viewportHeight * 0.3;
-    
+
     const randomX = minX + Math.random() * (maxX - minX);
     const randomY = minY + Math.random() * (maxY - minY);
-    
+
     blob.animate({
         left: `${randomX}px`,
         top: `${randomY}px`
@@ -169,12 +187,11 @@ function moveBlob() {
     });
 }
 
-// Check if pointer events are supported
 if (window.matchMedia("(pointer: fine)").matches) {
     // Desktop - follow cursor
     document.body.onpointermove = event => {
         const { clientX, clientY } = event;
-        
+
         blob.animate({
             left: `${clientX}px`,
             top: `${clientY}px`
@@ -185,15 +202,14 @@ if (window.matchMedia("(pointer: fine)").matches) {
         });
     };
 } else {
-    // Mobile - smoother random movement
-    setInterval(moveBlob, 2000); 
-    moveBlob(); // Initial movement
+    setInterval(moveBlob, 2000);
+    moveBlob();
 }
 
 document.addEventListener('click', (e) => {
     const target = e.target.closest('[data-scroll-to]');
     if (!target) return;
-    
+
     e.preventDefault();
     const elementToScrollTo = document.querySelector(`#${target.dataset.scrollTo}`);
     if (elementToScrollTo) {
@@ -204,18 +220,16 @@ document.addEventListener('click', (e) => {
     }
 });
 
-
-// Age Calculator
 function calculateAge(birthDate) {
     const currentDate = new Date();
     const birth = new Date(birthDate);
     let age = currentDate.getFullYear() - birth.getFullYear();
     const monthDiff = currentDate.getMonth() - birth.getMonth();
-    
+
     if (monthDiff < 0 || (monthDiff === 0 && currentDate.getDate() < birth.getDate())) {
         age--;
     }
-    
+
     return age;
 }
 
@@ -223,13 +237,11 @@ function calculateAge(birthDate) {
 function updateAge() {
     const ageElement = document.getElementById('age');
     if (ageElement) {
-        const age = calculateAge('2006-03-16'); // Your birthdate in YYYY-MM-DD format
+        const age = calculateAge('2006-03-16');
         ageElement.textContent = age;
     }
 }
 
-// Initial age calculation
 updateAge();
 
-// Update age every day (optional, but ensures accuracy if the page is left open)
 setInterval(updateAge, 1000 * 60 * 60 * 24);
